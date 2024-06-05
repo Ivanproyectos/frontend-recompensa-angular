@@ -1,0 +1,27 @@
+
+
+
+.ml-sm {
+    @include margin-left($spacing-sm);
+}
+.mr-sm {
+    @include margin-right($spacing-sm);
+}
+.ml-md {
+    @include margin-left($spacing-md);
+}
+.mr-md {
+    @include margin-right($spacing-md);
+}
+.ml-lg {
+    @include margin-left($spacing-lg);
+}
+.mr-lg {
+    @include margin-right($spacing-lg);
+}
+.ml-xl {
+    @include margin-left($spacing-xl);
+}
+.mr-xl {
+    @include margin-right($spacing-xl);
+}

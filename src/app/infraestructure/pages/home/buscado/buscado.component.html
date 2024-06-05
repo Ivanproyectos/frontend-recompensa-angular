@@ -1,0 +1,10 @@
+<main>
+    <section class="container">
+        @for (buscado of buscados; track $index) {
+            <p>{{buscado.nombre}}</p>
+        }@empty {
+            <ngx-skeleton-loader count="5" [theme]="{ 'height.px': 20, 'width.%': 30,'display': 'block' }" appearance="line" />
+        }
+    </section>
+</main>
+

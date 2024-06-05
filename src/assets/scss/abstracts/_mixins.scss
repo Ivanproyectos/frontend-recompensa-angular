@@ -1,0 +1,15 @@
+@mixin margin-left($size) {
+    margin-left: $size;
+  }
+  
+  @mixin margin-right($size) {
+    margin-right: $size;
+  }
+  
+  @mixin margin-top($size) {
+    margin-top: $size;
+  }
+  
+  @mixin margin-bottom($size) {
+    margin-bottom: $size;
+  }

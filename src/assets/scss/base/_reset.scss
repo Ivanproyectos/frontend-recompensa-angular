@@ -1,0 +1,39 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-size:16px;
+}
+
+p {
+    margin-bottom: 1em;
+  }
+  
+  ul, ol {
+    margin-bottom: 1em;
+    padding-left: 1.25em;
+  }
+
+  a {
+    color: #007bff;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  button {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+  }

@@ -1,0 +1,39 @@
+.portada {
+    height: 50vh;
+    background-color: #edf2ee;
+    &__container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 0 20px;
+    }
+}
+
+.categoria{
+    padding: 2rem 0;
+    &__container{
+        display: grid;
+        grid-template-columns:repeat(4,minmax(300px,1fr));
+        grid-template-rows: auto;
+        gap: 1rem;
+    }
+    &__item{
+        padding: 2rem;
+        background-color: #edf2ee;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        i {
+            font-size: 3rem;
+        }
+        &:hover{
+            background-color: #e3e4e3;
+        }
+    }
+}

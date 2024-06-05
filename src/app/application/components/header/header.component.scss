@@ -1,0 +1,48 @@
+@import '../../../../assets/scss/abstracts/variables';
+
+.header__container{
+    background-color: map-get($theme-colors,'primary'); 
+    color:aliceblue; 
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    &__logo{
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+    &__menu_icon{
+        display: none;
+    }
+    &__menu_nav {
+        display: flex; 
+        flex-direction: row;
+        ul { 
+            padding: 0;
+            margin: 0;
+
+            li {
+            display: inline-block;
+            margin-right: 1rem;
+            list-style: none;
+            font-weight: 500;
+                a {
+                    color:aliceblue;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    &__btn-ingresar {
+        padding: 0.55rem 0.65rem;
+        border-radius: 2rem;
+        outline: none;
+        border:1px solid transparent;
+        cursor: pointer;
+        /*background: rgb(72,179,180);
+        background: linear-gradient(254deg, rgba(72,179,180,1) 0%, rgba(31,67,122,1) 79%);
+        color:aliceblue; */
+    }
+}
