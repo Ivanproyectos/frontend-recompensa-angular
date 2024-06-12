@@ -6,5 +6,5 @@ export const categoriaIcon: { [key: string]: string } = {
     Robo: "bx bx-run",
     Fraude: "bx bx-credit-card-alt",
     Contrabando:  "bx bx-car",
-    Acoso:  "bx bx-child"
+    Acoso:  "bx bx-fingerprint"
 }
