@@ -8,16 +8,20 @@
         </div>
     </figure>
     <div class="info-buscado__body">
-        <div>
-            <h4 class="m-0">{{ buscado.nombre }} {{ buscado.apellidos }}</h4>
-            <p>
-                <strong>Alias: </strong> {{ buscado.alias! || 'sin alias' }}
-            </p>
-            <p><strong>Descripción:</strong></p>
-            <p class="info-buscado__description">
-                {{ buscado.descripcion }}
-            </p>
+        <div class="d-flex">
+            <h4 class="m-0">
+                {{ buscado.nombre }} {{ buscado.apellidos }} 
+            </h4>
+            <span class="ml-sm badge badge--light">{{ buscado.categoria.nombre }}</span>
+         
         </div>
+        <p>
+            <strong>Alias: </strong> {{ buscado.alias! || 'sin alias' }}
+        </p>
+        <p><strong>Descripción:</strong></p>
+        <p class="info-buscado__description">
+            {{ buscado.descripcion }}
+        </p>
         <div class="info-buscado__footer">
             <h2>{{ buscado.recompensa.toString() | formatoSoles }}</h2>
         </div>

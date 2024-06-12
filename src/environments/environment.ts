@@ -1,4 +1,4 @@
 export const environment = {
     production: false,
-    apiEndpoint: 'http://localhost:3000/api',
+    apiEndpoint: 'https://api-recompensa-node-production.up.railway.app/api',
   };
