@@ -67,7 +67,7 @@ h6 {
 @each $name, $color in $theme-colors-light {
     .badge--light-#{$name} {
         background-color: $color;
-        border: 1px solid map-get($map: $border-colors-light, $key: $name);
+        border: 1px solid map-get($map: $theme-colors, $key: $name);
         color: map-get($map: $color-text-light, $key: $name);
     }
 }

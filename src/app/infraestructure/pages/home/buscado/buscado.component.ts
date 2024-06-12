@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BuscadoPort } from '../../../../domain/ports/buscado/buscado.port';
 import { CategoriaPort } from '../../../../domain/ports/categoria/categoria.port';
@@ -34,28 +34,29 @@ export class BuscadoComponent {
   ) {
     this.title.setTitle("buscados");
    }
+   @ViewChild('skeletonBuscado', { static: true }) skeletonBuscado!: ElementRef;
   filtro: IBuscadoRequest = { categoriaId: '', filter: '' }
   buscados!: IBuscadoResponse[];
   buscado!: IBuscadoResponse;
   categorias!: ICategoriaRequest[];
   isOpenModal: boolean = false;
-
   ngOnInit(): void {
+
     this.route.queryParams.subscribe(params => {
       this.filtro.categoriaId = params['category'] || '';
     });
     setTimeout(() => {
       this.cargarBuscados();
+      this.skeletonBuscado.nativeElement.remove();
     }, 2000);
     this.cargarCategorias();
   }
-  cargarBuscados(): void {
-    this.buscadoPort.listarTodos(this.filtro)
-    .then(buscados => this.buscados = buscados);
+  async cargarBuscados(): Promise<void> {
+    this.buscados = await this.buscadoPort.listarTodos(this.filtro);
+
   }
-  cargarCategorias(): void {
-    this.categoriaPort.listarTodos()
-      .then(categorias => this.categorias = categorias);
+ async cargarCategorias(): Promise<void>{
+    this.categorias = await this.categoriaPort.listarTodos();
   }
 
   mostrarBuscarPorId(id: number): void {
@@ -64,7 +65,10 @@ export class BuscadoComponent {
         this.buscado = buscado;
         this.isOpenModal = true;
       });
-
+  }
+  async filtrarBuscados(): Promise<void> {
+   await this.cargarBuscados();
+   console.log(this.buscados)
   }
   closeModal(isOpen: boolean): void {
     this.isOpenModal = isOpen;

@@ -1,36 +1,42 @@
 <main>
     <section class="container buscado">
         <h1 class="text-center">Personas buscadas</h1>
-        <p class="text-center">Realiza tu denuncia anónima llamando a la línea gratuita <strong>0-800-40-010</strong></p>
+        <p class="text-center">Realiza tu denuncia anónima llamando a la línea gratuita <strong>0-800-40-010</strong>
+        </p>
         <div class="buscado__filtro">
             <div class="control-icon-start">
                 <i class="bx bx-search bx-sm"></i>
-                <input type="text" (keyup)="cargarBuscados()" class="control" [(ngModel)]="filtro.filter"
+                <input type="text" (keyup)="filtrarBuscados()" class="control" [(ngModel)]="filtro.filter"
                     placeholder="busca por nombre, apellidos o alias...">
             </div>
-            <select class="control" [(ngModel)]="filtro.categoriaId" (change)="cargarBuscados()">
+            <select class="control" [(ngModel)]="filtro.categoriaId" (change)="filtrarBuscados()">
                 <option value="">Todos</option>
                 @for(categoria of categorias; track $index) {
                 <option value="{{categoria.id}}">{{categoria.nombre}}</option>
                 }
             </select>
         </div>
-        <div class="buscado__list">
+        <div class="buscado__list" #skeletonBuscado>
+            <app-card-buscado *ngxRepeat="6" [loadingSkeleton]="true"></app-card-buscado>
+        </div>
+        <div class="buscado__list" *ngIf="buscados && buscados.length > 0">
             @for (buscado of buscados; track $index) {
-             <app-card-buscado [buscado]="buscado" (btnVerMas)="mostrarBuscarPorId($event)"></app-card-buscado>
-            }@empty {
-            @if(!buscados){
-             <app-card-buscado *ngxRepeat="6" [loadingSkeleton]="true"></app-card-buscado>
+            <app-card-buscado [buscado]="buscado" (btnVerMas)="mostrarBuscarPorId($event)"></app-card-buscado>
+            }
+        </div>
+        <div class="buscado__no-results" *ngIf="buscados && buscados.length == 0">
+            @if(filtro.filter) {
+            <h2 class="text-center w-100">Ningun resultado para "<strong>{{ filtro.filter }}</strong>"</h2>
+            <p class="text-center">Intenta con otras palabras</p>
             }@else{
-             <h4 class="text-center w-100">sin registros para mostrar</h4>
-             }
+            <h2 class="text-center w-100">Sin registros para mostrar</h2>
             }
         </div>
     </section>
 
     <app-modal [isOpen]="isOpenModal" *ngIf="isOpenModal" (close)="closeModal($event)">
         <app-info-buscado [buscado]="buscado"></app-info-buscado>
-       <!-- <div footer>
+        <!-- <div footer>
             <button class="btn btn--outline-primary" (click)="closeModal(false)">Cerrar</button>
         </div> -->
     </app-modal>
