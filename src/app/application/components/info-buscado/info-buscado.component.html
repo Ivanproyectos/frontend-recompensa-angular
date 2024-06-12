@@ -11,8 +11,9 @@
         <div>
             <h4 class="m-0">{{ buscado.nombre }} {{ buscado.apellidos }}</h4>
             <p>
-                <strong>Alias: </strong> <small>" {{ buscado.alias! || 'sin alias' }} "</small>
+                <strong>Alias: </strong> {{ buscado.alias! || 'sin alias' }}
             </p>
+            <p><strong>Descripción:</strong></p>
             <p class="info-buscado__description">
                 {{ buscado.descripcion }}
             </p>

@@ -32,14 +32,14 @@ $max-lines-show : 7;
     }
 
     &__body {
-        padding: 2rem;
-
-        h4 {
-            color: map-get($map: $theme-colors, $key:'primary' );
+        padding: 1.5rem;
+        h4{
+            font-weight: 600;
         }
     }
 
     &__footer {
+        margin-top: 2rem;
         display: flex;
         justify-content: space-between;
         align-items: center

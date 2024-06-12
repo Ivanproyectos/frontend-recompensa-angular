@@ -1,31 +1,44 @@
 .buscado {
     padding: 4rem 0;
-    &__list{
+
+    &__list {
         margin-top: 3rem;
         display: grid;
         grid-template-columns: repeat(3, minmax(320px, 1fr));
         gap: 1.5rem
     }
-   &__filtro {
-    display: flex;
-    .control-icon-start {
-        flex: 0 0 80%;
-        input { 
-            border-top-right-radius: 0;
-            border-bottom-right-radius:0;
-            padding: 0.8rem 3rem;
-        }      
+
+    &__filtro {
+        display: flex;
+
+        .control-icon-start {
+            flex: 0 0 80%;
+
+            input {
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+                padding: 0.8rem 3rem;
+            }
+
+            i:last-child {
+                right: 1rem;
+                color: #cf2815;
+                transition: all 0.3s ease-in-out;
+                cursor: pointer;
+            }
+        }
+
+        select {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            border-left-color: transparent;
+            border-left: 0;
+            font-size: 0.9rem;
+        }
     }
-    select {
-        border-top-left-radius: 0;
-        border-bottom-left-radius:0;
-        border-left-color:transparent; 
-        border-left: 0;
-        font-size: 0.9rem;
+
+    &__no-results {
+        padding: 3rem 0;
+        color: #aeaeae;
     }
-   }
-   &__no-results{
-    padding: 3rem 0;
-    color: #aeaeae;
-}
 }

@@ -8,6 +8,7 @@
                 <i class="bx bx-search bx-sm"></i>
                 <input type="text" (keyup)="filtrarBuscados()" class="control" [(ngModel)]="filtro.filter"
                     placeholder="busca por nombre, apellidos o alias...">
+                <i *ngIf="filtro.filter" class="bx bx-x bx-sm" (click)="filtro.filter = ''; filtrarBuscados()"></i>
             </div>
             <select class="control" [(ngModel)]="filtro.categoriaId" (change)="filtrarBuscados()">
                 <option value="">Todos</option>

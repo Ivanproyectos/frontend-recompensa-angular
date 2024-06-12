@@ -28,9 +28,8 @@
 
     &__body {
         padding: 2rem;
-        
-        h4 {
-            color: map-get($map: $theme-colors, $key:'primary' );
+        h4{
+            font-weight: 600;
         }
     }
 
