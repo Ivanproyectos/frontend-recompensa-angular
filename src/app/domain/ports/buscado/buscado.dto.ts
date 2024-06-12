@@ -2,6 +2,10 @@ import { ICategoriaRequest } from "../categoria/categoria.dto";
 import { INivelPeligroRequest } from "../nivelPeligro/nivelPeligro.dto";
 
 export interface IBuscadoRequest {
+    categoriaId: number | string
+    filter: string
+}
+export interface IBuscadoResponse {
     id: number
     nombre: string
     apellidos: string

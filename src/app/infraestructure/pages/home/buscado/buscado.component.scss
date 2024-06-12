@@ -1,0 +1,27 @@
+.buscado {
+    padding: 4rem 0;
+    &__list{
+        margin-top: 3rem;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(320px, 1fr));
+        gap: 1.5rem
+    }
+   &__filtro {
+    display: flex;
+    .control-icon-start {
+        flex: 0 0 80%;
+        input { 
+            border-top-right-radius: 0;
+            border-bottom-right-radius:0;
+            padding: 0.8rem 3rem;
+        }      
+    }
+    select {
+        border-top-left-radius: 0;
+        border-bottom-left-radius:0;
+        border-left-color:transparent; 
+        border-left: 0;
+        font-size: 0.9rem;
+    }
+   }
+}

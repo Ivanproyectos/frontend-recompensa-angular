@@ -1,4 +1,5 @@
-import { IBuscadoRequest } from "../buscado/buscado.dto";
+import { IBuscadoRequest, IBuscadoResponse } from "../buscado/buscado.dto";
 export abstract class BuscadoPort {
-    abstract listarTodos(): Promise<IBuscadoRequest[]>;
+    abstract listarTodos(filtro: IBuscadoRequest): Promise<IBuscadoResponse[]>;
+    abstract obtenerBuscadoPorId(id: number): Promise<IBuscadoResponse>;
 }

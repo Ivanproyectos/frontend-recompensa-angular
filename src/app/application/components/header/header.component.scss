@@ -1,14 +1,15 @@
 @import '../../../../assets/scss/abstracts/variables';
 
 .header__container{
-    background-color: map-get($theme-colors,'primary'); 
-    color:aliceblue; 
+    border-bottom: 1px solid #edf2ee;
+    box-shadow: 0px 2px 15px -5px rgba(0, 0, 0, 0.2);
 }
 .header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 0;
+    padding: 1.5rem 0;
+
     &__logo{
         font-size: 1.5rem;
         font-weight: 700;
@@ -25,11 +26,11 @@
 
             li {
             display: inline-block;
-            margin-right: 1rem;
+            margin-right: 1.4rem;
             list-style: none;
-            font-weight: 500;
                 a {
-                    color:aliceblue;
+                    font-weight: 600;
+                    color: #505050;
                     text-decoration: none;
                 }
             }
@@ -41,8 +42,7 @@
         outline: none;
         border:1px solid transparent;
         cursor: pointer;
-        /*background: rgb(72,179,180);
-        background: linear-gradient(254deg, rgba(72,179,180,1) 0%, rgba(31,67,122,1) 79%);
-        color:aliceblue; */
+        background-image: linear-gradient(to right, #0ea5e9,#2563eb );
+        color:#fff;
     }
 }

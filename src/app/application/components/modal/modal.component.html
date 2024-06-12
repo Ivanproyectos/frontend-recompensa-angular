@@ -1,0 +1,16 @@
+<div class="modal-backdrop" [ngClass]="{ 'show': isOpen }">
+<div [className]="'modal '+ withModal">
+    <div class="modal__header">
+        <h4 class="modal__title">{{ title }}</h4>
+        <button class="btn modal__close" (click)="closeModal()">
+            <i class="bx bx-x bx-sm"></i>
+        </button>
+    </div>
+    <div class="modal__body">
+        <ng-content></ng-content>
+    </div>
+    <div class="modal__footer">
+        <ng-content select="[footer]"></ng-content>  
+    </div>
+</div>
+</div>

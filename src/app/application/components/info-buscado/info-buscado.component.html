@@ -1,0 +1,24 @@
+<article class="info-buscado">
+    <figure class="info-buscado__img">
+        <img src="{{ buscado.image }}" />
+        <div class="info-buscado__container-status">
+            <span [class]="'badge badge--light-'+ nivelPeligroStatus.className">
+                <i [class]="nivelPeligroStatus.icon + ' mr-sm' "></i>{{ buscado.nivelPeligro.nombre }}
+            </span>
+        </div>
+    </figure>
+    <div class="info-buscado__body">
+        <div>
+            <h4 class="m-0">{{ buscado.nombre }} {{ buscado.apellidos }}</h4>
+            <p>
+                <strong>Alias: </strong> <small>" {{ buscado.alias! || 'sin alias' }} "</small>
+            </p>
+            <p class="info-buscado__description">
+                {{ buscado.descripcion }}
+            </p>
+        </div>
+        <div class="info-buscado__footer">
+            <h2>{{ buscado.recompensa.toString() | formatoSoles }}</h2>
+        </div>
+    </div>
+</article>

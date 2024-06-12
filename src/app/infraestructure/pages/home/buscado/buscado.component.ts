@@ -1,25 +1,73 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { BuscadoPort } from '../../../../domain/ports/buscado/buscado.port';
-import { IBuscadoRequest } from '../../../../domain/ports/buscado/buscado.dto';
-import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { CategoriaPort } from '../../../../domain/ports/categoria/categoria.port';
+import { IBuscadoRequest, IBuscadoResponse } from '../../../../domain/ports/buscado/buscado.dto';
+import { CardBuscadoComponent } from '../../../../application/components/card-buscado/card-buscado.component';
+import { InfoBuscadoComponent } from '../../../../application/components/info-buscado/info-buscado.component';
+import { ModalComponent } from '../../../../application/components/modal/modal.component';
+import { ICategoriaRequest } from '../../../../domain/ports/categoria/categoria.dto';
+import { FormsModule } from '@angular/forms';
+import { NgxRepeatDirective } from 'ngx-repeat';
+import { Title } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-buscado',
   standalone: true,
-  imports: [NgxSkeletonLoaderModule],
+  imports: [
+    CardBuscadoComponent,
+    InfoBuscadoComponent,
+    ModalComponent,
+    FormsModule,
+    NgxRepeatDirective,
+    CommonModule],
   templateUrl: './buscado.component.html',
   styleUrl: './buscado.component.scss',
 })
 export class BuscadoComponent {
-  buscados!: IBuscadoRequest[]
-  constructor(private buscadoPort: BuscadoPort) { }
+  constructor(
+    private buscadoPort: BuscadoPort,
+    private categoriaPort: CategoriaPort,
+    private title: Title,
+    private route: ActivatedRoute
+  ) {
+    this.title.setTitle("buscados");
+   }
+  filtro: IBuscadoRequest = { categoriaId: '', filter: '' }
+  buscados!: IBuscadoResponse[];
+  buscado!: IBuscadoResponse;
+  categorias!: ICategoriaRequest[];
+  isOpenModal: boolean = false;
 
-  ngOnInit(): void { 
-   // this.listarTodos();
+  ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      this.filtro.categoriaId = params['category'] || '';
+    });
+    setTimeout(() => {
+      this.cargarBuscados();
+    }, 2000);
+    this.cargarCategorias();
+  }
+  cargarBuscados(): void {
+    this.buscadoPort.listarTodos(this.filtro)
+    .then(buscados => this.buscados = buscados);
+  }
+  cargarCategorias(): void {
+    this.categoriaPort.listarTodos()
+      .then(categorias => this.categorias = categorias);
   }
 
-  listarTodos(): void { 
-    this.buscadoPort.listarTodos().then(buscados => this.buscados = buscados);
+  mostrarBuscarPorId(id: number): void {
+    this.buscadoPort.obtenerBuscadoPorId(id)
+      .then(buscado => {
+        this.buscado = buscado;
+        this.isOpenModal = true;
+      });
+
+  }
+  closeModal(isOpen: boolean): void {
+    this.isOpenModal = isOpen;
   }
 
 }

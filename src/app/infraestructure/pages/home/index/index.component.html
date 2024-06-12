@@ -3,20 +3,18 @@
         <div class="container portada__container">
             <h1>Programa de recompensas</h1>
             <p>Ayuda a la comunidad denunciando a los delincuentes más buscados.</p>
-            <button class="btn btn--primary d-flex align-items-center">Ver Buscados<i class='bx bx-right-arrow-alt ml-sm'></i></button>
+            <a class="btn btn--primary d-flex align-items-center" routerLink="/buscados">Ver Buscados<i class='bx bx-right-arrow-alt ml-sm'></i></a>
         </div>
     </section>
     <section class="categoria container">
         <h3>Categorías de Delitos</h3>
         <div class="categoria__container">
-            <article class="categoria__item">
-                <i class="bx bx-user bx-md"></i>
-                <h4>Robo</h4>
-            </article>
-            <article class="categoria__item">
-                <i class="bx bx-user bx-md"></i>
-                <h4>Robo</h4>
-            </article>
+            @for(categoria of categorias; track $index) {
+                <article class="categoria__item" (click)="buscarPorCategoria(categoria.id)">
+                    <i [className]="categoriasIcon[categoria.nombre] || 'bx bx-question-mark' +' bx-md' "></i>
+                    <h4>{{categoria.nombre}}</h4>
+                </article>
+            }
         </div>
     </section>
 </main>

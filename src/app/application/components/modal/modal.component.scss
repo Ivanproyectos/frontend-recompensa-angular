@@ -1,0 +1,59 @@
+@import '../../../../assets/scss/abstracts/variables';
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+  
+    .modal {
+        border-radius: 5px;
+        background: #fff;
+        &__header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;        
+        }
+
+        &__body {
+            padding: 1.5rem;
+        }
+        &__footer {
+            padding: 1.5rem;
+        }
+
+        &__close {
+            cursor: pointer;
+
+            &:hover {
+                opacity: 0.5;
+                color: map-get($theme-colors, 'danger');
+            }
+        }
+        &--small{
+            width: 600px;
+        }
+        &--large{
+            width: 800px;
+        }
+        &--full{
+            width: 100%;
+        }
+    }
+}
+
+.modal-backdrop.show {
+    opacity: 1;
+    pointer-events: all;
+}

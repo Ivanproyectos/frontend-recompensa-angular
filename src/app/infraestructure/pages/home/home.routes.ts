@@ -8,7 +8,7 @@ export const HOME_ROUTES: Routes = [
                 loadComponent: () => import('./index/index.component').then(m => m.IndexComponent)
             },
             {
-                path: 'buscado',
+                path: 'buscados',
                 loadComponent: () => import('./buscado/buscado.component').then(m => m.BuscadoComponent)
             }
         ]
