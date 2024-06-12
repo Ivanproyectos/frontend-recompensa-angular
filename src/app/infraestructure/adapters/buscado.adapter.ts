@@ -5,15 +5,15 @@ import { HttpClient } from '@angular/common/http';
 import { lastValueFrom } from 'rxjs';
 import { environment } from '../../../environments/environment';
 export class BuscadoAdapter implements BuscadoPort {
-  private urlApi = `${environment.apiEndpoint}/buscados`
-  private http: HttpClient = inject(HttpClient)
+  private urlApi = `${environment.apiEndpoint}/buscados`;
+  private http: HttpClient = inject(HttpClient);
   obtenerBuscadoPorId(id: number): Promise<IBuscadoResponse> {
-    return lastValueFrom(this.http.get<IBuscadoResponse>(`${this.urlApi}/${id}`))
+    return lastValueFrom(this.http.get<IBuscadoResponse>(`${this.urlApi}/${id}`));
   }
 
   listarTodos(filtro: IBuscadoRequest): Promise<IBuscadoResponse[]> {
-    const url = `${this.urlApi}?categoryId=${filtro.categoriaId}&filter=${filtro.filter}`;
-    return lastValueFrom(this.http.get<IBuscadoResponse[]>(url));
+    const endpoint = `${this.urlApi}?categoryId=${filtro.categoriaId}&filter=${filtro.filter}`;
+    return lastValueFrom(this.http.get<IBuscadoResponse[]>(endpoint));
   }
 
 }

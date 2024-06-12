@@ -1,6 +1,14 @@
+.background-radial{
+    height: 100vh;
+    position: fixed;
+    width: 100vw;
+    top: 0;
+    z-index: -10;
+    background-image: radial-gradient(ellipse 80% 80% at 50% -20%, rgba(120, 119, 198, .3), hsla(0, 0%, 100%, 0));
+}
 .portada {
     height: 50vh;
-    background-color: #edf2ee;
+    //background-color: #edf2ee;
     &__container {
         height: 100%;
         display: flex;

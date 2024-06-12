@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RouterLink, Router } from '@angular/router';
 import { ICategoriaRequest, categoriaIcon } from '../../../../domain/ports/categoria/categoria.dto';
 import { CategoriaPort } from '../../../../domain/ports/categoria/categoria.port';
+import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-index',
   standalone: true,
@@ -15,8 +16,11 @@ export class IndexComponent {
 
   constructor(
     private categoriaPort: CategoriaPort,
-    private router : Router
-    ) { }
+    private router : Router, 
+    private title: Title
+    ) {
+      this.title.setTitle("inicio");
+     }
 
   ngOnInit(): void {
     this.cargarCategorias();
