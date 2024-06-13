@@ -25,3 +25,15 @@
 .mr-xl {
     @include margin-right($spacing-xl);
 }
+.mb-sm {
+    @include margin-bottom($spacing-sm);
+}
+.mb-md {
+    @include margin-bottom($spacing-md);
+}
+.mb-lg {
+    @include margin-bottom($spacing-lg);
+}
+.mb-xl {
+    @include margin-bottom($spacing-xl);
+}
