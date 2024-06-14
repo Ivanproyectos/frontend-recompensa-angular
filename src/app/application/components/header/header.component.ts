@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,Output, EventEmitter  } from '@angular/core';
 import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-header',
@@ -8,5 +8,10 @@ import { RouterLink } from '@angular/router';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+  @Output() btnIngresar = new EventEmitter<void>();
+
+  ingresar() {
+    this.btnIngresar.emit();
+  }
 
 }

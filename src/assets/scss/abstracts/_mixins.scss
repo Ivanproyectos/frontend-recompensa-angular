@@ -1,15 +1,43 @@
 @mixin margin-left($size) {
-    margin-left: $size;
+  margin-left: $size;
+}
+
+@mixin margin-right($size) {
+  margin-right: $size;
+}
+
+@mixin margin-top($size) {
+  margin-top: $size;
+}
+
+@mixin margin-bottom($size) {
+  margin-bottom: $size;
+}
+
+@mixin form-control() {
+  padding: $padding-control;
+  border: 1px solid $border-color-control;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 400;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+@mixin icon-control($orientacion) {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  i {
+    margin-#{$orientacion}: 1rem;
+    position: absolute;
+    color: $border-color-control;
+    cursor: pointer;
   }
-  
-  @mixin margin-right($size) {
-    margin-right: $size;
+
+  input {
+    padding-#{$orientacion}: 3rem;
   }
-  
-  @mixin margin-top($size) {
-    margin-top: $size;
-  }
-  
-  @mixin margin-bottom($size) {
-    margin-bottom: $size;
-  }
+}

@@ -34,38 +34,64 @@ h6 {
     margin: 0;
 }
 
-.control {
-    padding: $padding-control;
-    border: 1px solid $border-color-control;
-    border-radius: 5px;
-    font-size: 1rem;
-    font-weight: 400;
-    outline: none;
+.form-control {
+    @include form-control();
+}
+
+.form-group{
+    margin-bottom: 1.5rem;
     width: 100%;
+
+    label{
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        font-size: 0.875rem;
+    }
+    
+}
+
+.has-error{
+
+    .form-control{
+        border-color: map-get($theme-colors, 'danger');
+        box-shadow: 0 0px 5px 0px rgba(207, 40, 21, 0.5)
+    }
+    .control-invalid{
+        color: map-get($theme-colors, 'danger');
+        font-size: 0.850rem;
+        display: block;
+        margin-top: 0.5rem;
+    }
 }
 
 .control-icon-start {
-    position: relative;
-    display: flex;
-    align-items: center;
-
-    i {
-        margin-left: 1rem;
-        position: absolute;
-        color: $border-color-control;
-    }
-
-    input {
-        padding-left: 3rem;
-    }
+    @include icon-control('left');
 }
+.control-icon-right{
+   @include icon-control('right');
+   justify-content: end;
 
+}
 .text-center {
     text-align: center;
 }
 
 .w-100 {
     width: 100%;
+}
+.alert{
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+.alert--light-danger{
+    background-color: #ffe0dd;
+    border:1px solid #ff6959;
+    color: #ff6959;
+    p {
+        margin-bottom: 0;
+    }
 }
 
 @each $name, $color in $theme-colors-light {

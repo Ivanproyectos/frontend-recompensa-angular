@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { homeGuard } from '../../guards/home.guard';
 export const HOME_ROUTES: Routes = [
     {
         path: '',
@@ -10,6 +11,10 @@ export const HOME_ROUTES: Routes = [
             {
                 path: 'buscados',
                 loadComponent: () => import('./buscado/buscado.component').then(m => m.BuscadoComponent)
+            },
+            {
+                path: 'buscados/registro', canActivate: [homeGuard],
+                loadComponent: () => import('./registro-buscado/registro-buscado.component').then(m => m.RegistroBuscadoComponent)
             }
         ]
     },
