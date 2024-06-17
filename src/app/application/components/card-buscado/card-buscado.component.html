@@ -1,7 +1,7 @@
 @if(!loadingSkeleton){
     <article class="card-buscado">
         <figure class="card-buscado__img">
-            <img src="{{ buscado.image }}" />
+            <img [ngSrc]="buscado.image" width="100" height="100" alt="persona buscada"/>
             <div class="card-buscado__container-status">
                 <span [class]="'badge badge--light-'+ nivelPeligroStatus.className">
                     <i [class]="nivelPeligroStatus.icon + ' mr-sm' "></i>{{ buscado.nivelPeligro.nombre }}
@@ -40,9 +40,6 @@
                         appearance="line" />
                 </p>
             </div>
-            <!-- <div class="card-buscado__description">
-                    <p>{{ buscado.descripcion }}</p>
-                </div>-->
             <div class="card-buscado__footer">
                 <h2>
                     <ngx-skeleton-loader count="1" [theme]="{ 'height.px': 20, 'width.px': 100,'display': 'block' }"

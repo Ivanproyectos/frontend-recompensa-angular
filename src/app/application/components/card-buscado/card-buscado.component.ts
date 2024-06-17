@@ -4,11 +4,12 @@ import { IBuscadoResponse } from '../../../domain/ports/buscado/buscado.dto';
 import { FormatoSolesPipe } from '../../../infraestructure/pipes/formato-soles.pipe';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { INivelPeligroIcon, NivelPeligro } from '../../../domain/ports/nivelPeligro/nivelPeligro.dto';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-card-buscado',
   standalone: true,
-  imports: [FormatoSolesPipe,NgxSkeletonLoaderModule],
+  imports: [FormatoSolesPipe,NgxSkeletonLoaderModule,NgOptimizedImage],
   templateUrl: './card-buscado.component.html',
   styleUrl: './card-buscado.component.scss'
 })
