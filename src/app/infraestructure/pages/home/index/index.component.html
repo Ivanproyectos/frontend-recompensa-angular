@@ -1,14 +1,14 @@
 <div class="background-radial"></div>
-<main>
+<main class="container">
     <section class="portada">
-        <div class="container portada__container">
+        <div class="portada__container">
             <h1>Programa de recompensas</h1>
             <p>Ayuda a la comunidad denunciando a los delincuentes más buscados.</p>
             <a class="btn btn--primary d-flex align-items-center" routerLink="/buscados">Ver Buscados<i class='bx bx-right-arrow-alt ml-sm'></i></a>
         </div>
     </section>
-    <section class="categoria container">
-        <h3>Categorías de Delitos</h3>
+    <section class="categoria">
+        <h3 class="text-center">Categorías de Delitos</h3>
         <div class="categoria__container">
             @for(categoria of categorias; track $index) {
                 <article class="categoria__item" (click)="buscarPorCategoria(categoria.id)">

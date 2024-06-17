@@ -39,7 +39,7 @@ export class LoginComponent {
         this.router.navigate(['/buscados/registro']);
       }catch(error: HttpErrorResponse | any){
         if(error.status === 401){
-          this.errorLogin = 'Credenciales incorrectas';
+          this.errorLogin = '❌ Credenciales incorrectas';
         }else{
           console.error(error)
           this.errorLogin = 'Error al iniciar sesión, intentelo más tarde 🥲';

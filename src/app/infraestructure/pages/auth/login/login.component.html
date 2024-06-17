@@ -7,8 +7,8 @@
             <p>Ingresa tus credenciales para acceder y registrar nuevos buscados.</p>
            <form [formGroup]="loginForm" (ngSubmit)="login()">
              <div class="form-group" [ngClass]="{ 'has-error': isValid('correo') }">
-                <label>Email</label>
-                <input type="correo" formControlName="correo" class="form-control" placeholder="ingrese su correo">
+                <label for="email">Email</label>
+                <input type="correo" formControlName="correo" autocomplete="email" class="form-control" placeholder="ingrese su correo">
                 <div class="control-invalid" *ngIf="isRequired('correo')">
                     email es obligatorio
                 </div>
@@ -18,9 +18,9 @@
                 </div>
              </div>
              <div class="form-group" [ngClass]="{ 'has-error': isValid('password') }">
-                <label>Contraseña</label>
+                <label for="password">Contraseña</label>
                 <div class="control-icon-right">
-                    <input [type]="isTypePassword? 'password' : 'text'"  formControlName="password" class="form-control" placeholder="ingrese su contraseña">
+                    <input [type]="isTypePassword? 'password' : 'text'"  formControlName="password" autocomplete="current-password" class="form-control" placeholder="ingrese su contraseña">
                     <i class="bx bx-show" *ngIf="isTypePassword" (click)="isTypePassword = false"></i>
                     <i class="bx bx-hide" *ngIf="!isTypePassword" (click)="isTypePassword = true"></i>
                 </div>

@@ -10,19 +10,19 @@
         background-color: #fff;
         border-radius: 5px;
         box-shadow: 0 0px 51px -18px rgba(0, 0, 0, 0.2);
-        padding: 40px;
+        padding: 3rem;
         width: 450px;
         border-radius: 10px;
         z-index: 2;
     }
     &__background {
         position: absolute;
-        background-color: rgba(120, 119, 198, 0.6);
+        background-color: rgba(37, 99,235, 0.4);
         opacity: .5;
         width: 500px;
         height: 500px;
-        filter: blur(80px);
-        top: 0;
+        filter: blur(160px);
+        top: -20%;
         right: 0;
     }
     &__polka-dot{
@@ -41,10 +41,22 @@
         color:#fff; 
         text-align: center;
         justify-content: center;
-        transition: all 0.5s ease;
+        transition:all 0.5s ease;
         cursor: pointer;
         &:hover {
-            background-image: linear-gradient(to right, #2563eb, #0ea5e9);
+          box-shadow: 0 0 10px 0px rgba(37, 99,235, 0.8);
+        }
+    }
+}
+
+@media  (max-width: 480px) {
+    .login{
+        h1{
+            font-size: 1.5rem;
+        }
+        &__form{
+            width: 320px;
+            padding: 2rem;
         }
     }
 }

@@ -1,16 +1,22 @@
-<header class="header__container">
-    <div class="container header">
-        <div class="header__logo">Programa de recompensas</div>
-        <div class="header__menu">
-            <nav class="header__menu_nav">
-                <ul class="header__menu_list d-flex align-items-center">
-                    <li><a routerLink="/" routerLinkActive="active">Inicio</a></li>
-                    <li><a routerLink="/buscados" routerLinkActive="active">Buscados</a></li>
-                </ul>
-                <button class="header__btn-ingresar" (click)="ingresar()"><i class='bx bx-lock mr-sm'></i>Ingresar</button>
-            </nav>
-            <div class="header__menu_icon">
-                <i class='bx bx-menu bx-lg'></i>
+<header class="header__container"  [ngClass]="{ 'menu--active': isOpenMenu }">
+    <div class="container">
+        <div class="header">
+            <div class="header__logo">
+                <span>Programa de recompensas</span>
+                <span class="header__logo-mobile">PR</span>
+            </div>
+            <div class="header__menu">
+                <nav class="header__menu_nav">
+                    <ul class="header__menu_list d-flex align-items-center">
+                        <li><a routerLink="/" routerLinkActive="header__menu-link--active" [routerLinkActiveOptions]="{exact: true}" >Inicio</a></li>
+                        <li><a routerLink="/buscados" routerLinkActive="header__menu-link--active">Buscados</a></li>
+                    </ul>
+                </nav>
+                <button class="header__btn-ingresar" (click)="ingresar()"><i
+                    class='bx bx-lock mr-sm'></i>Ingresar</button>
+                <div class="header__menu_icon" (click)="toggleMenu()">
+                    <i class='bx bx-menu bx-lg'></i>
+                </div>
             </div>
         </div>
     </div>

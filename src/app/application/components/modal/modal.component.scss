@@ -24,14 +24,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem;        
+            padding: 0 1.5rem;        
         }
 
         &__body {
             padding: 1.5rem;
         }
         &__footer {
-            padding: 1.5rem;
+            padding: 0 1.5rem;
         }
 
         &__close {
@@ -57,4 +57,11 @@
 .modal-backdrop.show {
     opacity: 1;
     pointer-events: all;
+}
+
+@media (max-width: 480px) {
+    .modal-backdrop .modal {
+        width: 90%;
+        margin-top: 100px;
+    }
 }

@@ -63,3 +63,9 @@ p {
     font-size: 0.875rem; /* 14px */
     font-weight: 400; /* Regular */
   }
+
+  @media only screen and (max-width: 480px) {
+    body{
+        font-size: 14px;
+    }
+  }

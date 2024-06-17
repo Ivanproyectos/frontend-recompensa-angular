@@ -45,7 +45,7 @@ h6 {
     label{
         display: block;
         margin-bottom: 0.5rem;
-        font-weight: 500;
+        font-weight: 600;
         font-size: 0.875rem;
     }
     
@@ -84,6 +84,7 @@ h6 {
     padding: 0.5rem 1rem;
     border-radius: 5px;
     margin-bottom: 1rem;
+    transition: all 0.3s ease-in-out;
 }
 .alert--light-danger{
     background-color: #ffe0dd;
@@ -91,6 +92,7 @@ h6 {
     color: #ff6959;
     p {
         margin-bottom: 0;
+        font-size: 0.95rem;
     }
 }
 
@@ -99,5 +101,16 @@ h6 {
         background-color: $color;
         border: 1px solid map-get($map: $theme-colors, $key: $name);
         color: map-get($map: $color-text-light, $key: $name);
+    }
+}
+
+@media (max-width: 480px) {
+    .container{
+        padding: 0 1rem;
+    }
+}
+@media (max-width: 768px) {
+    .container{
+        padding: 0 1rem;
     }
 }
