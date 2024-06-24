@@ -1,53 +1,53 @@
 @if(!loadingSkeleton){
-    <article class="card-buscado">
-        <figure class="card-buscado__img">
-            <img [ngSrc]="buscado.image" width="100" height="100" alt="persona buscada"/>
-            <div class="card-buscado__container-status">
-                <span [class]="'badge badge--light-'+ nivelPeligroStatus.className">
-                    <i [class]="nivelPeligroStatus.icon + ' mr-sm' "></i>{{ buscado.nivelPeligro.nombre }}
-                </span>
-            </div>
-        </figure>
-        <div class="card-buscado__body">
-            <div>
-                <h4 class="m-0">{{ buscado.nombre }} {{ buscado.apellidos }}</h4>
-                <p>
-                    <strong>Alias: </strong>{{ buscado.alias! || 'sin alias' }}
-                </p>
-            </div>
-            <div class="card-buscado__footer">
-                <h2>{{ buscado.recompensa.toString() | formatoSoles }}</h2>
-                <button class="btn btn--primary d-flex align-items-center card-buscado__btn-ver" (click)="verMas(buscado.id)">Ver mas 
-                    <i class="bx bx-right-arrow-alt ml-sm"></i>
-                </button>
-            </div>
+<article class="card-buscado">
+    <figure class="card-buscado__img">
+        <img [ngSrc]="buscado.image" width="100" height="100" alt="persona buscada" />
+        <div class="card-buscado__container-status">
+            <span [class]="'badge badge--light-' + nivelPeligroStatus.className">
+                <i [class]="nivelPeligroStatus.icon + ' mr-sm'"></i>{{ buscado.nivelPeligro.nombre }}
+            </span>
         </div>
-    </article>
+    </figure>
+    <div class="card-buscado__body">
+        <div>
+            <h4 class="m-0">{{ buscado.nombre }} {{ buscado.apellidos }}</h4>
+            <p><strong>Alias: </strong>{{ buscado.alias! || "sin alias" }}</p>
+        </div>
+        <div class="card-buscado__footer">
+            <p><strong class="card-buscado__recompensa">{{ buscado.recompensa.toString() | formatoSoles }}</strong></p>
+            <button class="btn btn--primary d-flex align-items-center card-buscado__btn-ver"
+                (click)="verMas(buscado.id)">
+                Ver mas
+                <!--<i class="bx bx-right-arrow-alt ml-sm"></i> -->
+            </button>
+        </div>
+    </div>
+</article>
 } @else {
-    <article class="card-buscado">
-        <figure class="card-buscado__img">
-            <ngx-skeleton-loader count="1" [theme]="{ 'height.%': 100, 'width.%': 100,'display': 'block' }"
-                appearance="line" />
-        </figure>
-        <div class="card-buscado__body">
-            <div>
-                <h4 class="m-0">
-                    <ngx-skeleton-loader count="1" [theme]="{ 'height.px': 20, 'width.%': 100,'display': 'block' }"
-                        appearance="line" />
-                </h4>
-                <p class="small">
-                    <ngx-skeleton-loader count="1" [theme]="{ 'height.px': 10, 'width.%': 100,'display': 'block' }"
-                        appearance="line" />
-                </p>
-            </div>
-            <div class="card-buscado__footer">
-                <h2>
-                    <ngx-skeleton-loader count="1" [theme]="{ 'height.px': 20, 'width.px': 100,'display': 'block' }"
-                        appearance="line" />
-                </h2>
-                <ngx-skeleton-loader count="1" [theme]="{ 'height.px': 20, 'width.px': 100,'display': 'block' }"
+<article class="card-buscado">
+    <figure class="card-buscado__img">
+        <ngx-skeleton-loader count="1" [theme]="{ 'height.%': 100, 'width.%': 100, display: 'block' }"
+            appearance="line" />
+    </figure>
+    <div class="card-buscado__body">
+        <div>
+            <h4 class="m-0">
+                <ngx-skeleton-loader count="1" [theme]="{ 'height.px': 20, 'width.%': 100, display: 'block' }"
                     appearance="line" />
-            </div>
+            </h4>
+            <p class="small">
+                <ngx-skeleton-loader count="1" [theme]="{ 'height.px': 10, 'width.%': 100, display: 'block' }"
+                    appearance="line" />
+            </p>
         </div>
-    </article>
+        <div class="card-buscado__footer">
+            <h2>
+                <ngx-skeleton-loader count="1" [theme]="{ 'height.px': 20, 'width.px': 100, display: 'block' }"
+                    appearance="line" />
+            </h2>
+            <ngx-skeleton-loader count="1" [theme]="{ 'height.px': 20, 'width.px': 100, display: 'block' }"
+                appearance="line" />
+        </div>
+    </div>
+</article>
 }
